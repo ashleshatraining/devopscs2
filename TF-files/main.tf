@@ -49,7 +49,7 @@ resource "azurerm_public_ip" "public_ip" {
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
   allocation_method   = "Dynamic"
-  sku                 = "Standard" # Change this line
+  
 
 }
 
