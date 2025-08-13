@@ -48,7 +48,9 @@ resource "azurerm_public_ip" "public_ip" {
   name                = "${var.prefix}vm_public_ip"
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
-  allocation_method   = "Dynamic"
+  allocation_method   = "static"
+  sku                 = "Standard" # Change this line
+
 }
 
 resource "azurerm_network_interface" "nic" {
@@ -59,7 +61,7 @@ resource "azurerm_network_interface" "nic" {
   ip_configuration {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet.id
-    private_ip_address_allocation = "Dynamic"
+    private_ip_address_allocation = "static"
     public_ip_address_id = azurerm_public_ip.public_ip.id
   }
 }
@@ -121,7 +123,7 @@ resource "azurerm_storage_account" "my_storage_account" {
 resource "azurerm_windows_virtual_machine" "main" {
   name                  = "${var.prefix}vm10"
   admin_username        = "${var.VMNAME}"
-  admin_password        = "https://paritala-keyvault.vault.azure.net/secrets/vm-password/11e8948a7a2e4bd38589368d32973f6b"
+  admin_password        = "https://anshi-keyvault.vault.azure.net/secrets/vm-password/11e8948a7a2e4bd38589368d32973f6b"
   location              = data.azurerm_resource_group.rg.location
   resource_group_name   = data.azurerm_resource_group.rg.name
   network_interface_ids = [azurerm_network_interface.nic.id]
@@ -159,7 +161,7 @@ resource "azurerm_mssql_server" "sql-server" {
   location                     = data.azurerm_resource_group.rg.location
   version                      = "12.0"
   administrator_login          = "${var.SLOGIN}"
-  administrator_login_password = "https://paritala-keyvault.vault.azure.net/secrets/sql-password/df72ca5dcabd4da2aa06a4a23cab827e"
+  administrator_login_password = "https://anshi-keyvault.vault.azure.net/secrets/sql-password/df72ca5dcabd4da2aa06a4a23cab827e"
 }
 
 resource "azurerm_mssql_database" "db" {
