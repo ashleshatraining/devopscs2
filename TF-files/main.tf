@@ -48,7 +48,7 @@ resource "azurerm_public_ip" "public_ip" {
   name                = "${var.prefix}vm_public_ip"
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
-  allocation_method   = "static"
+  allocation_method   = "Static"
   sku                 = "Standard" # Change this line
 
 }
@@ -61,7 +61,7 @@ resource "azurerm_network_interface" "nic" {
   ip_configuration {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet.id
-    private_ip_address_allocation = "static"
+    private_ip_address_allocation = "Static"
     public_ip_address_id = azurerm_public_ip.public_ip.id
   }
 }
