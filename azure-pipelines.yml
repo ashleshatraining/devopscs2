@@ -57,7 +57,7 @@ stages:
              workingDirectory: '$(System.DefaultWorkingDirectory)/TF-files'
              backendServiceArm: 'AZResourceconn'
              backendAzureRmResourceGroupName: 'backendazurerg'
-             backendAzureRmStorageAccountName: 'backendazurerg'
+             backendAzureRmStorageAccountName: 'backendrg'
              backendAzureRmContainerName: 'testbacknd'
              backendAzureRmKey: 'terraform.tfstate'
          
@@ -94,7 +94,7 @@ stages:
             workingDirectory: '$(System.DefaultWorkingDirectory)/TF-files'
             backendServiceArm: 'AZResourceconn'
             backendAzureRmResourceGroupName: 'backendazurerg'
-            backendAzureRmStorageAccountName: 'backendazurerg'
+            backendAzureRmStorageAccountName: 'backendrg'
             backendAzureRmContainerName: 'testbacknd'
             backendAzureRmKey: 'terraform.tfstate'
 
