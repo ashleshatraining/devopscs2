@@ -104,4 +104,3 @@ stages:
             command: 'destroy'
             workingDirectory: '$(System.DefaultWorkingDirectory)/TF-files'
             environmentServiceNameAzureRM: 'AZResourceconn'
-
