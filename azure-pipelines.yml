@@ -33,7 +33,7 @@ stages:
     
     
     pool: 
-     vmImage: windows-latest
+     vmImage: testazure
     jobs:
       - job: deploy
         steps: 
@@ -56,9 +56,9 @@ stages:
              command: 'init'
              workingDirectory: '$(System.DefaultWorkingDirectory)/TF-files'
              backendServiceArm: 'serviceconn1'
-             backendAzureRmResourceGroupName: 'Paritala'
-             backendAzureRmStorageAccountName: 'casestudy3sa1'
-             backendAzureRmContainerName: 'container12'
+             backendAzureRmResourceGroupName: 'backendazurerg'
+             backendAzureRmStorageAccountName: 'backendazurerg'
+             backendAzureRmContainerName: 'testbacknd'
              backendAzureRmKey: 'terraform.tfstate'
          
           
@@ -93,9 +93,9 @@ stages:
             command: 'init'
             workingDirectory: '$(System.DefaultWorkingDirectory)/TF-files'
             backendServiceArm: 'serviceconn1'
-            backendAzureRmResourceGroupName: 'Paritala'
-            backendAzureRmStorageAccountName: 'casestudy3sa1'
-            backendAzureRmContainerName: 'container12'
+            backendAzureRmResourceGroupName: 'backendazurerg'
+            backendAzureRmStorageAccountName: 'backendazurerg'
+            backendAzureRmContainerName: 'testbacknd'
             backendAzureRmKey: 'terraform.tfstate'
 
         - task: TerraformTaskV4@4
