@@ -33,7 +33,7 @@ stages:
     
     
     pool: 
-     vmImage: testazure
+     vmImage: windows-latest
     jobs:
       - job: deploy
         steps: 
