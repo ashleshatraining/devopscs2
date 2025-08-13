@@ -69,14 +69,14 @@ stages:
              command: 'plan'
              workingDirectory: '$(System.DefaultWorkingDirectory)/TF-files'
              commandOptions: '-input=true' 
-             environmentServiceNameAzureRM: 'serviceconn1'
+             environmentServiceNameAzureRM: 'AZResourceconn'
 
          - task: TerraformTaskV4@4
            inputs:
              provider: 'azurerm'
              command: 'apply'
              workingDirectory: '$(System.DefaultWorkingDirectory)/TF-files'
-             environmentServiceNameAzureRM: 'serviceconn1'
+             environmentServiceNameAzureRM: 'AZResourceconn'
         
   - stage: destroyInfra
     condition: eq('${{ parameters.actionToPerform}}', 'Destroy')            
