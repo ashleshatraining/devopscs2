@@ -13,7 +13,8 @@ terraform {
     key                  = "terraform.tfstate"
   }  
 }
-provider "azurerm.secondary" {
+provider "azurerm" {
+  alias = "secondary"
   features {}
   skip_provider_registration = true
 }
