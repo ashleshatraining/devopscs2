@@ -48,9 +48,8 @@ resource "azurerm_public_ip" "public_ip" {
   name                = "${var.prefix}vm_public_ip"
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
-  allocation_method   = "Dynamic"
-  
-
+  allocation_method   = "Static"
+  sku                 = "Standard"
 }
 
 resource "azurerm_network_interface" "nic" {
