@@ -4,10 +4,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "=3.0.0"
     }
- provider "azurerm" {
-  features {}
-  skip_provider_registration = true
-}
 
   }
   backend "azurerm" {
@@ -16,6 +12,10 @@ terraform {
     container_name       = "testbacknd"
     key                  = "terraform.tfstate"
   }  
+}
+provider "azurerm" {
+  features {}
+  skip_provider_registration = true
 }
 provider "azurerm" {
   features {}
